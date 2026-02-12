@@ -70,13 +70,6 @@ Output:
 - `docs/ERROR_HELP.md` troubleshooting and common fixes
 - `docs/GITHUB_SETUP.md` publishing and repo hygiene checklist
 
-## GitHub Readiness Notes
-Before publishing:
-1. Choose a license (`LICENSE` file is not bundled automatically).
-2. Review `docs/GITHUB_SETUP.md` checklist.
-3. Confirm no local secrets are in tracked files.
-4. Optionally add GitHub workflows (`.github/workflows`) for CI.
-
 ## Security Notes
 - Secrets are stored encrypted at rest by backend service.
 - Do not commit `.env` files, local databases, or build outputs.
