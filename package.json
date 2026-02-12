@@ -1,0 +1,21 @@
+{
+  "name": "neroai",
+  "version": "0.1.0",
+  "private": true,
+  "description": "NeroAI agentic platform monorepo",
+  "workspaces": [
+    "apps/desktop",
+    "packages/core",
+    "packages/plugins"
+  ],
+  "scripts": {
+    "dev": "concurrently -k -n backend,desktop \"npm:dev:backend\" \"npm:dev:desktop\"",
+    "dev:backend": "cd apps/backend && .venv\\Scripts\\python -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload",
+    "dev:desktop": "npm --workspace apps/desktop run dev",
+    "build": "npm --workspace packages/core run build && npm --workspace packages/plugins run build && npm --workspace apps/desktop run build",
+    "test:backend": "cd apps/backend && .venv\\Scripts\\python -m pytest"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

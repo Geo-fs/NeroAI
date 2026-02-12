@@ -1,0 +1,75 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Python virtual environments
+.venv/
+**/.venv/
+venv/
+**/venv/
+
+# Python caches
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+**/.pytest_cache/
+.mypy_cache/
+**/.mypy_cache/
+
+# Environment and local config
+.env
+.env.*
+!.env.example
+*.local
+
+# Sensitive files and credentials
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+*.jks
+*.kdbx
+id_rsa
+id_rsa.pub
+
+# SQLite and local state
+*.db
+*.sqlite
+*.sqlite3
+apps/backend/neroai.db
+
+# Logs and runtime outputs
+*.log
+logs/
+tmp/
+temp/
+
+# Build outputs
+dist/
+build/
+release/
+apps/desktop/dist/
+apps/desktop/release/
+packages/*/dist/
+
+# Backend runtime temp/tool outputs
+apps/backend/tool_runs/
+apps/backend/quarantine/
+apps/backend/diagnostics/
+
+# Coverage
+.coverage
+coverage/
+htmlcov/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/

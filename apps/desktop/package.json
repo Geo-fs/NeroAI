@@ -1,0 +1,59 @@
+{
+  "name": "neroai-desktop",
+  "version": "0.1.0",
+  "private": true,
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "concurrently \"vite\" \"wait-on tcp:5173 && node electron/dev-launcher.cjs\"",
+    "build": "vite build && cross-env CSC_IDENTITY_AUTO_DISCOVERY=false electron-builder --win nsis",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zustand": "^5.0.3",
+    "@neroai/core": "0.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
+    "electron": "33.2.1",
+    "electron-builder": "^25.1.8",
+    "typescript": "^5.7.3",
+    "vite": "^6.0.5",
+    "wait-on": "^8.0.1"
+  },
+  "build": {
+    "appId": "ai.nero.desktop",
+    "productName": "NeroAI",
+    "electronVersion": "33.2.1",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "electron/**/*",
+      "dist/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "../backend/app",
+        "to": "backend/app"
+      },
+      {
+        "from": "../backend/requirements.txt",
+        "to": "backend/requirements.txt"
+      }
+    ],
+    "win": {
+      "signAndEditExecutable": false,
+      "target": [
+        "nsis"
+      ]
+    }
+  }
+}
